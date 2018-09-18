@@ -1,9 +1,6 @@
 language: python
 python:
 - '3.6'
-install: |
-  pip install pipenv
-  pipenv install
 script:
 - echo "No tests!"
 deploy:
