@@ -1,1 +1,1 @@
-# cloudformation-customer-resources-context-manager
+# CloudFormation Custom Resource Context Manager

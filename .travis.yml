@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.6'
+install: |
+  pip install pipenv
+  pipenv install
+deploy:
+  provider: pypi
+  user: trek10
+  password:
+    secure: sfSBQfV+n81k2pdHe5O683V4xgc4itm3xX1bwOG0lgmPNuOcb6QC+F2EgRct3CmJj9+8hgPgTkaSkjambmMvjX1pLqcYyl2XjpoVDmTGTqMUU8SjSUEilFdKmI98QAG+ElqLQyTJlGq9QkjVW+J7iFJ1WDmhiSZCsTq6Dk8wfOEvqHmnATa2A0d4xYanbMqrgiXqAYPtCVsMFVpngyNfJbLvXf4Gq0ZxcNxP7DeeYX9k4dQVxgFSgr5SQ9Tz4xPzC/fbNx4LhS96hoAmh6p6y71AaNZ/CfJU6RGj4tNwcivYhFS3PmVGC/rR5YZB2LupZEQmOkzSv2YvGtT4yv82o3mBlgjIVg1Lq3l6XD3+GmbVljiiUGu4MPhbC21aPWUBVUw/e0+gTBSGgeOl3D4kAjrph9oJ0gYNWvfPGwMescAn4jImP/2+LvTBY3O+N3TkbJJKzgFkyFcf0MB/am9nWzfUIhkc1ro7b7o8vT6HHXEwrW6poyyvYpxtx8KxpBS44AFk6YhJkE1Ii/iL7oqm8Ap7xFN7mQZerE/8Ww+hTM24+bBG1RXR9uzhHKJmWY3povQruXthgtAw8iIWFT2+CJx0pETluQL5zzffYsMlS2o29f39CDgoPHFNXY9osIuilkMBXXrO2pLud8SqoNu9BLqDHaZr+uok2uLcgrccXY0=
+branches:
+  only:
+  - master
