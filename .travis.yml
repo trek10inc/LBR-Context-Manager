@@ -4,6 +4,8 @@ python:
 install: |
   pip install pipenv
   pipenv install
+script: |
+  echo "No tests!"
 deploy:
   provider: pypi
   user: trek10
