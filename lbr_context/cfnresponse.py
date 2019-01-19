@@ -46,24 +46,28 @@ class CfnContext:
     def __enter__(self):
         return self
 
-    def send(self, response=FAILED, resource_properties=None,
-             physical_id=None):
+    def send(self,
+             response=FAILED,
+             resource_properties=None,
+             physical_id=None,
+             reason=None):
         self.properties = resource_properties if resource_properties is not None else self.properties
         self.physical_id = physical_id if resource_properties is not None else self.physical_id
         send(self.event, self.context, response, self.properties,
-             self.physical_id, self.no_echo)
+             self.physical_id, reason, self.no_echo)
 
-    def failed(self, resource_properties=None, physical_id=None):
-        self.send(FAILED, resource_properties, physical_id)
+    def failed(self, resource_properties=None, physical_id=None, reason=None):
+        self.send(FAILED, resource_properties, physical_id, reason)
 
-    def success(self, resource_properties=None, physical_id=None):
-        self.send(SUCCESS, resource_properties, physical_id)
+    def success(self, resource_properties=None, physical_id=None, reason=None):
+        self.send(SUCCESS, resource_properties, physical_id, reason)
 
     def __exit__(self, type_, value, tb):
         signal.setitimer(signal.ITIMER_REAL, 0)
         if tb:
-            print(f"{type_.__name__}: {value}")
+            reason = f"{type_.__name__}: {value}"
+            print(reason)
             print_tb(tb)
-            self.failed()
+            self.failed(reason=reason)
         else:
-            self.success()
+            self.success(reason='Custom resource successful!')
