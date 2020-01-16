@@ -18,6 +18,7 @@ setup(
     ],
     install_requires=[
         'botocore',
+        'requests',
     ],
     license='MIT',
 )
